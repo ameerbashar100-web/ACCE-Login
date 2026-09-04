@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ACCE - تسجيل الدخول</title>
+<style>
+:root{
+  --blue:#1f5fd2;
+  --blue2:#5f9bea;
+  --ink:#151515;
+  --panel:rgba(220,231,250,.86);
+  --line:#d8e1ef;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:'Arial',sans-serif;color:var(--ink);background:#fff}
+body{
+  min-height:100vh;
+  overflow-x:hidden;
+  background:
+    linear-gradient(55deg,transparent 0 20%,rgba(221,229,242,.55) 20% 29%,transparent 29% 48%,rgba(226,234,247,.55) 48% 58%,transparent 58%),
+    linear-gradient(125deg,transparent 0 66%,rgba(111,181,234,.68) 66% 79%,transparent 79%),
+    #fff;
+}
+.app{width:min(100%,720px);margin:auto;min-height:100vh;padding:18px 20px 28px}
+.top{display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:44px;font-weight:900;letter-spacing:-2px;color:#155bd1}
+.lang-area{position:relative;display:flex;align-items:center;gap:16px}
+.lang-btn{
+  width:58px;height:58px;border:0;background:transparent;border-radius:50%;
+  font-size:38px;cursor:pointer;padding:0;
+}
+.refresh{font-size:36px;font-weight:700;line-height:1;transform:rotate(-20deg);opacity:.95}
+.country-menu{
+  position:absolute;left:0;top:64px;width:265px;max-height:65vh;overflow:auto;
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 12px 35px rgba(0,0,0,.16);padding:8px;display:none;z-index:20
+}
+.country-menu.open{display:block}
+.country-option{
+  width:100%;display:flex;align-items:center;gap:10px;padding:10px 12px;
+  border:0;background:#fff;border-radius:10px;text-align:right;cursor:pointer;font-size:16px
+}
+.country-option:hover{background:#eef5ff}
+.flag{font-size:28px;width:38px;text-align:center}
+.country-name{flex:1;text-align:right}
+.country-ar{font-size:13px;color:#777;display:block;margin-top:2px}
+.heading{font-size:52px;font-weight:800;margin:78px 4px 34px;text-align:right}
+.panel{
+  background:var(--panel);border-radius:28px;padding:30px 28px 28px;
+  border:1px solid rgba(200,215,238,.7)
+}
+.label{font-size:25px;font-weight:700;margin:0 0 12px;text-align:right}
+.field{
+  height:74px;background:#fff;border:1px solid #eef2f7;border-radius:7px;
+  display:flex;align-items:center;padding:0 18px;margin-bottom:28px
+}
+.phone-code{
+  display:flex;align-items:center;gap:10px;font-size:25px;white-space:nowrap;
+  border:0;background:transparent;cursor:pointer;padding:0 0 0 12px
+}
+.code-arrow{font-size:23px}
+.phone-input,.text-input{
+  flex:1;border:0;outline:0;background:transparent;font-size:25px;min-width:0;
+  color:#222;text-align:right
+}
+.phone-input::placeholder,.text-input::placeholder{color:#aaa}
+.password-field{padding-left:20px}
+.eye{
+  width:40px;height:40px;border:0;background:transparent;font-size:31px;cursor:pointer;
+  padding:0;margin-right:8px
+}
+.remember-row{display:flex;align-items:center;gap:18px;color:#155bd1;font-size:23px;font-weight:700;justify-content:flex-end}
+.switch{position:relative;width:72px;height:42px;background:#999;border-radius:30px;cursor:pointer}
+.switch i{position:absolute;width:34px;height:34px;left:4px;top:4px;background:#fff;border-radius:50%;transition:.18s}
+.switch.on{background:#1f5fd2}.switch.on i{left:34px}
+.main-btn{
+  width:100%;height:78px;margin-top:58px;border:0;border-radius:40px;
+  background:linear-gradient(90deg,#71a8ee,#76a7eb);color:#fff;font-size:27px;cursor:pointer;font-weight:700
+}
+.main-btn.enabled{background:linear-gradient(90deg,#2f78df,#5d98e8)}
+.member{font-size:23px;text-align:center;margin-top:28px}
+.member a{color:#155bd1;text-decoration:none;font-weight:500;cursor:pointer}
+.version{text-align:center;font-size:18px;margin-top:34px}
+.error{color:#d51616;font-size:17px;margin:-16px 0 18px;font-weight:700;min-height:20px;text-align:right}
+.notice{color:#d51616;font-size:18px;font-weight:700;text-align:center;margin-top:18px;min-height:24px}
+.register-panel{padding-bottom:22px}
+.register-title{font-size:45px;font-weight:800;margin:44px 0 30px;text-align:right}
+.invite-note{font-size:14px;color:#666;margin-top:-17px;margin-bottom:20px;text-align:right}
+.agree{display:flex;align-items:flex-start;gap:12px;font-size:18px;line-height:1.45;margin-top:4px;flex-direction:row-reverse}
+.agree input{width:25px;height:25px;margin-top:2px;accent-color:#2f78df}
+.agree a{color:#155bd1;text-decoration:none}
+.hidden{display:none!important}
+.country-code-menu{
+  position:absolute;right:20px;top:68px;width:250px;max-height:48vh;overflow:auto;background:#fff;
+  border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 28px rgba(0,0,0,.14);
+  display:none;z-index:25;padding:7px
+}
+.country-code-menu.open{display:block}
+.code-option{
+  width:100%;border:0;background:#fff;text-align:center;padding:10px;border-radius:9px;
+  font-size:16px;cursor:pointer
+}
+.code-option:hover{background:#eef5ff}
+.captcha-display{
+  font-size:32px;font-weight:bold;letter-spacing:8px;color:#333;text-align:center;
+  padding:10px 0;
+}
+.captcha-display span:nth-child(1){color:#FFD700}
+.captcha-display span:nth-child(2){color:#00AA00}
+.captcha-display span:nth-child(3){color:#0000FF}
+.captcha-display span:nth-child(4){color:#9933FF}
+
+@media(max-width:560px){
+  .app{padding:16px 20px 26px}
+  .logo{font-size:42px}
+  .heading{font-size:46px;margin-top:68px;margin-bottom:30px}
+  .panel{border-radius:25px;padding:26px 22px}
+  .label{font-size:23px}.field{height:70px}
+  .phone-code,.phone-input,.text-input{font-size:22px}
+  .main-btn{height:72px;font-size:25px;margin-top:50px}
+  .member{font-size:20px}.version{font-size:17px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <div class="logo">ACCE</div>
+    <div class="lang-area">
+      <button id="langBtn" class="lang-btn" aria-label="اللغة">🇦🇪</button>
+      <div class="refresh">↻</div>
+      <div id="countryMenu" class="country-menu"></div>
+    </div>
+  </div>
+
+  <section id="loginPage">
+    <h1 id="loginTitle" class="heading">تسجيل الدخول</h1>
+    <div class="panel">
+      <p id="phoneLabel" class="label">رقم التلفون</p>
+      <div class="field" style="position:relative">
+        <input id="phone" class="phone-input" inputmode="numeric" autocomplete="tel" placeholder="رقم الهاتف" maxlength="11">
+        <button id="codeBtn" class="phone-code" type="button"><span class="code-arrow">⌄</span><span id="codeText">+964</span></button>
+        <div id="codeMenu" class="country-code-menu"></div>
+      </div>
+      <div id="phoneError" class="error"></div>
+
+      <p id="passwordLabel" class="label">كلمة المرور</p>
+      <div class="field password-field">
+        <button id="eye" class="eye" type="button" aria-label="إظهار كلمة المرور">◉</button>
+        <input id="password" class="text-input" type="password" autocomplete="current-password" placeholder="أدخل كلمة المرور" maxlength="8">
+      </div>
+      <div id="passwordError" class="error"></div>
+
+      <div class="remember-row">
+        <button id="switch" class="switch" type="button" aria-label="تذكر كلمة المرور"><i></i></button>
+        <span id="rememberText">تذكر كلمة المرور</span>
+      </div>
+    </div>
+
+    <button id="loginBtn" class="main-btn" type="button">تسجيل الدخول</button>
+    <div id="loginNotice" class="notice"></div>
+    <div class="member"><a id="registerLink">سجل الآن</a> <span id="notMember">ليس لديك حساب؟</span></div>
+    <div class="version">version number: 1.0.3.1</div>
+  </section>
+
+  <section id="registerPage" class="hidden">
+    <h1 id="registerTitle" class="register-title">تسجيل المستخدم</h1>
+    <div class="panel register-panel">
+      <p id="rPhoneLabel" class="label">رقم التلفون</p>
+      <div class="field" style="position:relative">
+        <input id="rPhone" class="phone-input" inputmode="numeric" autocomplete="tel" placeholder="رقم الهاتف" maxlength="11">
+        <button id="rCodeBtn" class="phone-code" type="button"><span class="code-arrow">⌄</span><span id="rCodeText">+964</span></button>
+        <div id="rCodeMenu" class="country-code-menu"></div>
+      </div>
+      <div id="rPhoneError" class="error"></div>
+
+      <p id="rPasswordLabel" class="label">كلمة المرور</p>
+      <div class="field password-field">
+        <button id="rEye" class="eye" type="button">◉</button>
+        <input id="rPassword" class="text-input" type="password" placeholder="أدخل كلمة المرور" maxlength="8">
+      </div>
+      <div id="rPasswordError" class="error"></div>
+
+      <p id="confirmLabel" class="label">تأكيد كلمة المرور</p>
+      <div class="field password-field">
+        <button id="rConfirmEye" class="eye" type="button">◉</button>
+        <input id="rConfirm" class="text-input" type="password" placeholder="الرجاء تأكيد كلمة المرور" maxlength="8">
+      </div>
+      <div id="rConfirmError" class="error"></div>
+
+      <p id="captchaLabel" class="label">الكابتشا الرسمية</p>
+      <div class="field" style="flex-direction:column;height:auto;padding:12px 18px;justify-content:center">
+        <div class="captcha-display">
+          <span>F</span><span>J</span><span>1</span><span>8</span>
+        </div>
+        <input id="captcha" class="text-input" placeholder="إدخال رمز التحقق من الرسم البياني : FJ18" maxlength="4" style="margin-top:12px;text-align:center">
+      </div>
+      <div id="captchaError" class="error"></div>
+
+      <p id="inviteLabel" class="label">رمز الدعوة</p>
+      <div class="field">
+        <input id="invite" class="text-input" placeholder="الرجاء إدخال رمز الدعوة" maxlength="3">
+      </div>
+      <div class="invite-note">رمز الدعوة: 3 أحرف</div>
+      <div id="inviteError" class="error"></div>
+
+      <label class="agree">
+        <span><a href="#" onclick="return false">Enrollment Agreement</a><br><span id="agreeArabic">أقر بأنني أوافق وألتزم</span></span>
+        <input id="agree" type="checkbox">
+      </label>
+    </div>
+
+    <button id="registerBtn" class="main-btn" type="button">تسجيل الآن</button>
+    <div id="registerNotice" class="notice"></div>
+  </section>
+</div>
+
+<script>
+(function(){
+  const HOME = 'index.html';
+  const AUTH_KEY = 'acce_login_data_v1';
+
+  const countries = [
+    {flag:'🇦🇪', name:'الإمارات العربية المتحدة', code:'+971', lang:'ar'},
+    {flag:'🇮🇶', name:'العراق', code:'+964', lang:'ar'},
+    {flag:'🇸🇦', name:'المملكة العربية السعودية', code:'+966', lang:'ar'},
+    {flag:'🇦🇺', name:'Australia', code:'+61', lang:'en'},
+    {flag:'🇺🇸', name:'United States', code:'+1', lang:'en'},
+    {flag:'🇬🇧', name:'United Kingdom', code:'+44', lang:'en'},
+    {flag:'🇨🇦', name:'Canada', code:'+1', lang:'en'},
+    {flag:'🇩🇪', name:'Germany', code:'+49', lang:'en'},
+    {flag:'🇫🇷', name:'France', code:'+33', lang:'en'},
+    {flag:'🇮🇹', name:'Italy', code:'+39', lang:'en'},
+    {flag:'🇪🇸', name:'Spain', code:'+34', lang:'en'},
+    {flag:'🇹🇷', name:'Turkey', code:'+90', lang:'en'},
+    {flag:'🇶🇦', name:'Qatar', code:'+974', lang:'en'},
+    {flag:'🇰🇼', name:'Kuwait', code:'+965', lang:'en'}
+  ];
+
+  let selected = countries[1];
+  let selectedCode = '+964';
+  let remembered = false;
+
+  const $ = id => document.getElementById(id);
+  const countryMenu = $('countryMenu');
+  const codeMenu = $('codeMenu');
+  const rCodeMenu = $('rCodeMenu');
+
+  function renderCountries(){
+    countryMenu.innerHTML = countries.map((c,i)=>`
+      <button class="country-option" type="button" data-i="${i}">
+        <span class="country-name">${c.name}<span class="country-ar">${c.lang==='ar'?'العربية':'English'}</span></span>
+        <span class="flag">${c.flag}</span>
+      </button>`).join('');
+    countryMenu.querySelectorAll('.country-option').forEach(b=>{
+      b.onclick=()=>{ selectCountry(+b.dataset.i); countryMenu.classList.remove('open'); };
+    });
+  }
+
+  function renderCodes(menu, setter){
+    menu.innerHTML = countries.map(c=>`
+      <button class="code-option" type="button" data-code="${c.code}">${c.code}</button>`).join('');
+    menu.querySelectorAll('.code-option').forEach(b=>{
+      b.onclick=()=>{ setter(b.dataset.code); menu.classList.remove('open'); };
+    });
+  }
+
+  function selectCountry(i){
+    selected = countries[i];
+    $('langBtn').textContent = selected.flag;
+    document.documentElement.lang = selected.lang;
+    selectedCode = selected.code;
+    $('codeText').textContent = selected.code;
+    $('rCodeText').textContent = selected.code;
+  }
+
+  function validatePhone(v){
+    return /^\d{11}$/.test(v);
+  }
+  function validatePassword(v){
+    return /^[A-Za-z0-9]{8}$/.test(v);
+  }
+  function setError(id,msg){ $(id).textContent=msg||''; }
+
+  $('langBtn').onclick=()=>countryMenu.classList.toggle('open');
+  document.addEventListener('click',e=>{
+    if(!e.target.closest('.lang-area')) countryMenu.classList.remove('open');
+    if(!e.target.closest('#codeBtn') && !e.target.closest('#codeMenu')) codeMenu.classList.remove('open');
+    if(!e.target.closest('#rCodeBtn') && !e.target.closest('#rCodeMenu')) rCodeMenu.classList.remove('open');
+  });
+
+  $('codeBtn').onclick=e=>{e.stopPropagation();codeMenu.classList.toggle('open')};
+  $('rCodeBtn').onclick=e=>{e.stopPropagation();rCodeMenu.classList.toggle('open')};
+  renderCodes(codeMenu,c=>{$('codeText').textContent=c;selectedCode=c});
+  renderCodes(rCodeMenu,c=>{$('rCodeText').textContent=c});
+  renderCountries();
+
+  $('switch').onclick=()=>{ remembered=!remembered; $('switch').classList.toggle('on',remembered); };
+
+  function eye(btn,input){
+    btn.onclick=()=>{input.type=input.type==='password'?'text':'password'};
+  }
+  eye($('eye'),$('password'));
+  eye($('rEye'),$('rPassword'));
+  eye($('rConfirmEye'),$('rConfirm'));
+
+  $('registerLink').onclick=()=>{
+    $('loginPage').classList.add('hidden'); 
+    $('registerPage').classList.remove('hidden'); 
+    window.scrollTo(0,0);
+  };
+
+  $('loginBtn').onclick=()=>{
+    setError('phoneError',''); setError('passwordError',''); $('loginNotice').textContent='';
+    const phone=$('phone').value.trim(), pass=$('password').value;
+    let ok=true;
+    if(selectedCode==='+964' && !validatePhone(phone)){
+      setError('phoneError','رقم الهاتف غير صحيح'); ok=false;
+    }
+    if(!validatePassword(pass)){
+      setError('passwordError','كلمة المرور يجب أن تكون 8 أحرف'); ok=false;
+    }
+    if(!ok) return;
+
+    const saved=JSON.parse(localStorage.getItem(AUTH_KEY)||'null');
+    if(saved && saved.code===selectedCode && saved.phone===phone && saved.password===pass){
+      if(remembered) localStorage.setItem(AUTH_KEY,JSON.stringify(saved));
+      window.location.href=HOME;
+    }else{
+      $('loginNotice').textContent='ليس لديك حساب ACCE';
+    }
+  };
+
+  $('registerBtn').onclick=()=>{
+    ['rPhoneError','rPasswordError','rConfirmError','captchaError','inviteError'].forEach(id=>setError(id,''));
+    $('registerNotice').textContent='';
+    const phone=$('rPhone').value.trim();
+    const pass=$('rPassword').value;
+    const conf=$('rConfirm').value;
+    const captcha=$('captcha').value.trim().toUpperCase();
+    const invite=$('invite').value.trim();
+    let ok=true;
+
+    if($('rCodeText').textContent==='+964' && !validatePhone(phone)){
+      setError('rPhoneError','رقم الهاتف غير صحيح'); ok=false;
+    }
+    if(!validatePassword(pass)){ setError('rPasswordError','كلمة المرور يجب أن تكون 8 أحرف'); ok=false; }
+    if(conf!==pass){ setError('rConfirmError','كلمة المرور غير متطابقة'); ok=false; }
+    if(captcha!=='FJ18'){ setError('captchaError','الكابتشا غير صحيحة'); ok=false; }
+    if(!/^[A-Za-z0-9]{3}$/.test(invite)){ setError('inviteError','رمز الدعوة يجب أن يكون 3 أحرف'); ok=false; }
+    if(!$('agree').checked){ $('registerNotice').textContent='يرجى قبول اتفاق التسجيل'; ok=false; }
+    if(!ok) return;
+
+    const data={code:$('rCodeText').textContent,phone,password:pass,invite,remembered:true};
+    localStorage.setItem(AUTH_KEY,JSON.stringify(data));
+    window.location.href=HOME;
+  };
+
+  $('phone').addEventListener('input',()=>{$('phone').value=$('phone').value.replace(/\D/g,'').slice(0,11)});
+  $('rPhone').addEventListener('input',()=>{$('rPhone').value=$('rPhone').value.replace(/\D/g,'').slice(0,11)});
+  $('password').addEventListener('input',()=>{$('password').value=$('password').value.replace(/[^A-Za-z0-9]/g,'').slice(0,8)});
+  $('rPassword').addEventListener('input',()=>{$('rPassword').value=$('rPassword').value.replace(/[^A-Za-z0-9]/g,'').slice(0,8)});
+  $('rConfirm').addEventListener('input',()=>{$('rConfirm').value=$('rConfirm').value.replace(/[^A-Za-z0-9]/g,'').slice(0,8)});
+  $('invite').addEventListener('input',()=>{$('invite').value=$('invite').value.slice(0,3)});
+})();
+</script>
+</body>
+</html>
