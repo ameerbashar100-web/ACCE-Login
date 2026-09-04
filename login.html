@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>ACCE - تسجيل الدخول</title>
+<title>ACCE - Login</title>
 <style>
 :root{
   --blue:#1f5fd2;
@@ -13,114 +13,105 @@
   --line:#d8e1ef;
 }
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:'Arial',sans-serif;color:var(--ink);background:#fff}
+html,body{margin:0;padding:0;min-height:100%;font-family:'Segoe UI','Arial',sans-serif;color:var(--ink);background:#fff}
 body{
   min-height:100vh;
   overflow-x:hidden;
   background:
-    linear-gradient(55deg,transparent 0 20%,rgba(221,229,242,.55) 20% 29%,transparent 29% 48%,rgba(226,234,247,.55) 48% 58%,transparent 58%),
-    linear-gradient(125deg,transparent 0 66%,rgba(111,181,234,.68) 66% 79%,transparent 79%),
+    linear-gradient(135deg,transparent 0 15%,rgba(221,229,242,.55) 15% 28%,transparent 28% 50%,rgba(226,234,247,.55) 50% 65%,transparent 65%),
+    linear-gradient(45deg,transparent 0 60%,rgba(111,181,234,.68) 60% 75%,transparent 75%),
     #fff;
 }
-.app{width:min(100%,720px);margin:auto;min-height:100vh;padding:18px 20px 28px}
-.top{display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:44px;font-weight:900;letter-spacing:-2px;color:#155bd1}
-.lang-area{position:relative;display:flex;align-items:center;gap:16px}
+.app{width:100%;max-width:100%;margin:0;min-height:100vh;padding:0;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;justify-content:space-between;padding:24px 60px;background:transparent}
+.logo{font-size:48px;font-weight:900;letter-spacing:-3px;color:#155bd1}
+.lang-area{position:relative;display:flex;align-items:center;gap:20px}
 .lang-btn{
-  width:58px;height:58px;border:0;background:transparent;border-radius:50%;
-  font-size:38px;cursor:pointer;padding:0;
+  width:64px;height:64px;border:0;background:transparent;border-radius:50%;
+  font-size:48px;cursor:pointer;padding:0;
 }
-.refresh{font-size:36px;font-weight:700;line-height:1;transform:rotate(-20deg);opacity:.95}
+.refresh{font-size:44px;font-weight:700;line-height:1;transform:rotate(-20deg);opacity:.95}
 .country-menu{
-  position:absolute;left:0;top:64px;width:265px;max-height:65vh;overflow:auto;
-  background:#fff;border:1px solid var(--line);border-radius:16px;
-  box-shadow:0 12px 35px rgba(0,0,0,.16);padding:8px;display:none;z-index:20
+  position:absolute;right:0;top:74px;width:300px;max-height:60vh;overflow:auto;
+  background:#fff;border:1px solid var(--line);border-radius:18px;
+  box-shadow:0 12px 40px rgba(0,0,0,.16);padding:10px;display:none;z-index:20
 }
 .country-menu.open{display:block}
 .country-option{
-  width:100%;display:flex;align-items:center;gap:10px;padding:10px 12px;
-  border:0;background:#fff;border-radius:10px;text-align:right;cursor:pointer;font-size:16px
+  width:100%;display:flex;align-items:center;gap:12px;padding:12px 16px;
+  border:0;background:#fff;border-radius:12px;cursor:pointer;font-size:17px;text-align:left
 }
 .country-option:hover{background:#eef5ff}
-.flag{font-size:28px;width:38px;text-align:center}
-.country-name{flex:1;text-align:right}
-.country-ar{font-size:13px;color:#777;display:block;margin-top:2px}
-.heading{font-size:52px;font-weight:800;margin:78px 4px 34px;text-align:right}
+.flag{font-size:32px;width:44px;text-align:center}
+.country-name{flex:1}
+.country-ar{font-size:14px;color:#777;display:block;margin-top:2px}
+.container{flex:1;display:flex;align-items:center;justify-content:center;padding:0 60px}
+.content{width:100%;max-width:750px}
+.heading{font-size:64px;font-weight:800;margin:0 0 40px;text-align:left;color:#000}
 .panel{
-  background:var(--panel);border-radius:28px;padding:30px 28px 28px;
-  border:1px solid rgba(200,215,238,.7)
+  background:var(--panel);border-radius:32px;padding:40px 44px;
+  border:1px solid rgba(200,215,238,.7);margin-bottom:28px
 }
-.label{font-size:25px;font-weight:700;margin:0 0 12px;text-align:right}
+.label{font-size:28px;font-weight:700;margin:0 0 14px;text-align:left}
 .field{
-  height:74px;background:#fff;border:1px solid #eef2f7;border-radius:7px;
-  display:flex;align-items:center;padding:0 18px;margin-bottom:28px
+  height:80px;background:#fff;border:1px solid #eef2f7;border-radius:8px;
+  display:flex;align-items:center;padding:0 20px;margin-bottom:32px
 }
 .phone-code{
-  display:flex;align-items:center;gap:10px;font-size:25px;white-space:nowrap;
-  border:0;background:transparent;cursor:pointer;padding:0 0 0 12px
+  display:flex;align-items:center;gap:10px;font-size:28px;white-space:nowrap;
+  border:0;background:transparent;cursor:pointer;padding:0 16px 0 0
 }
-.code-arrow{font-size:23px}
+.code-arrow{font-size:24px}
 .phone-input,.text-input{
-  flex:1;border:0;outline:0;background:transparent;font-size:25px;min-width:0;
-  color:#222;text-align:right
+  flex:1;border:0;outline:0;background:transparent;font-size:28px;min-width:0;
+  color:#222;text-align:left
 }
 .phone-input::placeholder,.text-input::placeholder{color:#aaa}
-.password-field{padding-left:20px}
+.password-field{padding-right:20px}
 .eye{
-  width:40px;height:40px;border:0;background:transparent;font-size:31px;cursor:pointer;
-  padding:0;margin-right:8px
+  width:44px;height:44px;border:0;background:transparent;font-size:36px;cursor:pointer;
+  padding:0;margin-left:12px;display:flex;align-items:center;justify-content:center
 }
-.remember-row{display:flex;align-items:center;gap:18px;color:#155bd1;font-size:23px;font-weight:700;justify-content:flex-end}
-.switch{position:relative;width:72px;height:42px;background:#999;border-radius:30px;cursor:pointer}
-.switch i{position:absolute;width:34px;height:34px;left:4px;top:4px;background:#fff;border-radius:50%;transition:.18s}
-.switch.on{background:#1f5fd2}.switch.on i{left:34px}
+.remember-row{display:flex;align-items:center;gap:16px;color:#155bd1;font-size:26px;font-weight:700;justify-content:flex-start}
+.switch{position:relative;width:80px;height:48px;background:#999;border-radius:32px;cursor:pointer;border:none}
+.switch i{position:absolute;width:40px;height:40px;right:4px;top:4px;background:#fff;border-radius:50%;transition:.18s}
+.switch.on{background:#1f5fd2}.switch.on i{right:auto;left:4px}
 .main-btn{
-  width:100%;height:78px;margin-top:58px;border:0;border-radius:40px;
-  background:linear-gradient(90deg,#71a8ee,#76a7eb);color:#fff;font-size:27px;cursor:pointer;font-weight:700
+  width:100%;height:86px;margin-top:48px;border:0;border-radius:44px;
+  background:linear-gradient(90deg,#71a8ee,#76a7eb);color:#fff;font-size:30px;cursor:pointer;font-weight:700;font-family:'Segoe UI','Arial',sans-serif
 }
-.main-btn.enabled{background:linear-gradient(90deg,#2f78df,#5d98e8)}
-.member{font-size:23px;text-align:center;margin-top:28px}
-.member a{color:#155bd1;text-decoration:none;font-weight:500;cursor:pointer}
-.version{text-align:center;font-size:18px;margin-top:34px}
-.error{color:#d51616;font-size:17px;margin:-16px 0 18px;font-weight:700;min-height:20px;text-align:right}
-.notice{color:#d51616;font-size:18px;font-weight:700;text-align:center;margin-top:18px;min-height:24px}
-.register-panel{padding-bottom:22px}
-.register-title{font-size:45px;font-weight:800;margin:44px 0 30px;text-align:right}
-.invite-note{font-size:14px;color:#666;margin-top:-17px;margin-bottom:20px;text-align:right}
-.agree{display:flex;align-items:flex-start;gap:12px;font-size:18px;line-height:1.45;margin-top:4px;flex-direction:row-reverse}
-.agree input{width:25px;height:25px;margin-top:2px;accent-color:#2f78df}
+.main-btn:active{background:linear-gradient(90deg,#2f78df,#5d98e8)}
+.member{font-size:26px;text-align:center;margin-top:28px}
+.member a{color:#155bd1;text-decoration:none;font-weight:600;cursor:pointer}
+.version{text-align:center;font-size:20px;margin-top:40px;color:#666;padding-bottom:20px}
+.error{color:#d51616;font-size:18px;margin:-18px 0 16px;font-weight:700;min-height:20px;text-align:left}
+.notice{color:#d51616;font-size:20px;font-weight:700;text-align:center;margin-top:16px;min-height:24px}
+.register-panel{padding-bottom:24px}
+.register-title{font-size:60px;font-weight:800;margin:0 0 36px;text-align:left}
+.invite-note{font-size:16px;color:#666;margin-top:-18px;margin-bottom:22px;text-align:left}
+.agree{display:flex;align-items:flex-start;gap:14px;font-size:20px;line-height:1.5;margin-top:8px;flex-direction:row}
+.agree input{width:28px;height:28px;margin-top:4px;accent-color:#2f78df;cursor:pointer}
 .agree a{color:#155bd1;text-decoration:none}
 .hidden{display:none!important}
 .country-code-menu{
-  position:absolute;right:20px;top:68px;width:250px;max-height:48vh;overflow:auto;background:#fff;
-  border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 28px rgba(0,0,0,.14);
-  display:none;z-index:25;padding:7px
+  position:absolute;right:0;top:74px;width:280px;max-height:55vh;overflow:auto;background:#fff;
+  border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 32px rgba(0,0,0,.14);
+  display:none;z-index:25;padding:8px
 }
 .country-code-menu.open{display:block}
 .code-option{
-  width:100%;border:0;background:#fff;text-align:center;padding:10px;border-radius:9px;
-  font-size:16px;cursor:pointer
+  width:100%;border:0;background:#fff;text-align:center;padding:12px;border-radius:10px;
+  font-size:18px;cursor:pointer;font-weight:500
 }
 .code-option:hover{background:#eef5ff}
 .captcha-display{
-  font-size:32px;font-weight:bold;letter-spacing:8px;color:#333;text-align:center;
-  padding:10px 0;
+  font-size:44px;font-weight:bold;letter-spacing:12px;color:#333;text-align:center;
+  padding:14px 0;margin-bottom:10px
 }
 .captcha-display span:nth-child(1){color:#FFD700}
 .captcha-display span:nth-child(2){color:#00AA00}
 .captcha-display span:nth-child(3){color:#0000FF}
 .captcha-display span:nth-child(4){color:#9933FF}
-
-@media(max-width:560px){
-  .app{padding:16px 20px 26px}
-  .logo{font-size:42px}
-  .heading{font-size:46px;margin-top:68px;margin-bottom:30px}
-  .panel{border-radius:25px;padding:26px 22px}
-  .label{font-size:23px}.field{height:70px}
-  .phone-code,.phone-input,.text-input{font-size:22px}
-  .main-btn{height:72px;font-size:25px;margin-top:50px}
-  .member{font-size:20px}.version{font-size:17px}
-}
 </style>
 </head>
 <body>
@@ -128,92 +119,96 @@ body{
   <div class="top">
     <div class="logo">ACCE</div>
     <div class="lang-area">
-      <button id="langBtn" class="lang-btn" aria-label="اللغة">🇦🇪</button>
+      <button id="langBtn" class="lang-btn" aria-label="Language">🇬🇧</button>
       <div class="refresh">↻</div>
       <div id="countryMenu" class="country-menu"></div>
     </div>
   </div>
 
-  <section id="loginPage">
-    <h1 id="loginTitle" class="heading">تسجيل الدخول</h1>
-    <div class="panel">
-      <p id="phoneLabel" class="label">رقم التلفون</p>
-      <div class="field" style="position:relative">
-        <input id="phone" class="phone-input" inputmode="numeric" autocomplete="tel" placeholder="رقم الهاتف" maxlength="11">
-        <button id="codeBtn" class="phone-code" type="button"><span class="code-arrow">⌄</span><span id="codeText">+964</span></button>
-        <div id="codeMenu" class="country-code-menu"></div>
-      </div>
-      <div id="phoneError" class="error"></div>
+  <div class="container">
+    <div class="content">
+      <section id="loginPage">
+        <h1 id="loginTitle" class="heading">Log in</h1>
+        <div class="panel">
+          <p id="phoneLabel" class="label">Phone number</p>
+          <div class="field" style="position:relative">
+            <input id="phone" class="phone-input" inputmode="numeric" autocomplete="tel" placeholder="Phone number" maxlength="11">
+            <button id="codeBtn" class="phone-code" type="button"><span id="codeText">+964</span> <span class="code-arrow">⌄</span></button>
+            <div id="codeMenu" class="country-code-menu"></div>
+          </div>
+          <div id="phoneError" class="error"></div>
 
-      <p id="passwordLabel" class="label">كلمة المرور</p>
-      <div class="field password-field">
-        <button id="eye" class="eye" type="button" aria-label="إظهار كلمة المرور">◉</button>
-        <input id="password" class="text-input" type="password" autocomplete="current-password" placeholder="أدخل كلمة المرور" maxlength="8">
-      </div>
-      <div id="passwordError" class="error"></div>
+          <p id="passwordLabel" class="label">Password</p>
+          <div class="field password-field">
+            <input id="password" class="text-input" type="password" autocomplete="current-password" placeholder="password" maxlength="8">
+            <button id="eye" class="eye" type="button" aria-label="Show password">◉</button>
+          </div>
+          <div id="passwordError" class="error"></div>
 
-      <div class="remember-row">
-        <button id="switch" class="switch" type="button" aria-label="تذكر كلمة المرور"><i></i></button>
-        <span id="rememberText">تذكر كلمة المرور</span>
-      </div>
-    </div>
-
-    <button id="loginBtn" class="main-btn" type="button">تسجيل الدخول</button>
-    <div id="loginNotice" class="notice"></div>
-    <div class="member"><a id="registerLink">سجل الآن</a> <span id="notMember">ليس لديك حساب؟</span></div>
-    <div class="version">version number: 1.0.3.1</div>
-  </section>
-
-  <section id="registerPage" class="hidden">
-    <h1 id="registerTitle" class="register-title">تسجيل المستخدم</h1>
-    <div class="panel register-panel">
-      <p id="rPhoneLabel" class="label">رقم التلفون</p>
-      <div class="field" style="position:relative">
-        <input id="rPhone" class="phone-input" inputmode="numeric" autocomplete="tel" placeholder="رقم الهاتف" maxlength="11">
-        <button id="rCodeBtn" class="phone-code" type="button"><span class="code-arrow">⌄</span><span id="rCodeText">+964</span></button>
-        <div id="rCodeMenu" class="country-code-menu"></div>
-      </div>
-      <div id="rPhoneError" class="error"></div>
-
-      <p id="rPasswordLabel" class="label">كلمة المرور</p>
-      <div class="field password-field">
-        <button id="rEye" class="eye" type="button">◉</button>
-        <input id="rPassword" class="text-input" type="password" placeholder="أدخل كلمة المرور" maxlength="8">
-      </div>
-      <div id="rPasswordError" class="error"></div>
-
-      <p id="confirmLabel" class="label">تأكيد كلمة المرور</p>
-      <div class="field password-field">
-        <button id="rConfirmEye" class="eye" type="button">◉</button>
-        <input id="rConfirm" class="text-input" type="password" placeholder="الرجاء تأكيد كلمة المرور" maxlength="8">
-      </div>
-      <div id="rConfirmError" class="error"></div>
-
-      <p id="captchaLabel" class="label">الكابتشا الرسمية</p>
-      <div class="field" style="flex-direction:column;height:auto;padding:12px 18px;justify-content:center">
-        <div class="captcha-display">
-          <span>F</span><span>J</span><span>1</span><span>8</span>
+          <div class="remember-row">
+            <button id="switch" class="switch" type="button" aria-label="Remember password"><i></i></button>
+            <span id="rememberText">Remember password</span>
+          </div>
         </div>
-        <input id="captcha" class="text-input" placeholder="إدخال رمز التحقق من الرسم البياني : FJ18" maxlength="4" style="margin-top:12px;text-align:center">
-      </div>
-      <div id="captchaError" class="error"></div>
 
-      <p id="inviteLabel" class="label">رمز الدعوة</p>
-      <div class="field">
-        <input id="invite" class="text-input" placeholder="الرجاء إدخال رمز الدعوة" maxlength="3">
-      </div>
-      <div class="invite-note">رمز الدعوة: 3 أحرف</div>
-      <div id="inviteError" class="error"></div>
+        <button id="loginBtn" class="main-btn" type="button">Log in</button>
+        <div id="loginNotice" class="notice"></div>
+        <div class="member"><span id="notMember">Not A Member?</span> <a id="registerLink">Register Now</a></div>
+        <div class="version">version number: 1.0.3.1</div>
+      </section>
 
-      <label class="agree">
-        <span><a href="#" onclick="return false">Enrollment Agreement</a><br><span id="agreeArabic">أقر بأنني أوافق وألتزم</span></span>
-        <input id="agree" type="checkbox">
-      </label>
+      <section id="registerPage" class="hidden">
+        <h1 id="registerTitle" class="register-title">User Registration</h1>
+        <div class="panel register-panel">
+          <p id="rPhoneLabel" class="label">Phone number</p>
+          <div class="field" style="position:relative">
+            <input id="rPhone" class="phone-input" inputmode="numeric" autocomplete="tel" placeholder="Phone number" maxlength="11">
+            <button id="rCodeBtn" class="phone-code" type="button"><span id="rCodeText">+964</span> <span class="code-arrow">⌄</span></button>
+            <div id="rCodeMenu" class="country-code-menu"></div>
+          </div>
+          <div id="rPhoneError" class="error"></div>
+
+          <p id="rPasswordLabel" class="label">Password</p>
+          <div class="field password-field">
+            <input id="rPassword" class="text-input" type="password" placeholder="Enter password" maxlength="8">
+            <button id="rEye" class="eye" type="button">◉</button>
+          </div>
+          <div id="rPasswordError" class="error"></div>
+
+          <p id="confirmLabel" class="label">Confirm Password</p>
+          <div class="field password-field">
+            <input id="rConfirm" class="text-input" type="password" placeholder="Please confirm password" maxlength="8">
+            <button id="rConfirmEye" class="eye" type="button">◉</button>
+          </div>
+          <div id="rConfirmError" class="error"></div>
+
+          <p id="captchaLabel" class="label">Official Captcha</p>
+          <div class="field" style="flex-direction:column;height:auto;padding:16px 20px;justify-content:center;gap:10px">
+            <div class="captcha-display">
+              <span>F</span><span>J</span><span>1</span><span>8</span>
+            </div>
+            <input id="captcha" class="text-input" placeholder="Enter verification code: FJ18" maxlength="4" style="text-align:center;font-size:26px">
+          </div>
+          <div id="captchaError" class="error"></div>
+
+          <p id="inviteLabel" class="label">Invite Code</p>
+          <div class="field">
+            <input id="invite" class="text-input" placeholder="Please enter invite code" maxlength="3">
+          </div>
+          <div class="invite-note">Invite Code: 3 characters</div>
+          <div id="inviteError" class="error"></div>
+
+          <label class="agree">
+            <input id="agree" type="checkbox">
+            <span><a href="#" onclick="return false">Enrollment Agreement</a></span>
+          </label>
+        </div>
+
+        <button id="registerBtn" class="main-btn" type="button">Register Now</button>
+        <div id="registerNotice" class="notice"></div>
+      </section>
     </div>
-
-    <button id="registerBtn" class="main-btn" type="button">تسجيل الآن</button>
-    <div id="registerNotice" class="notice"></div>
-  </section>
+  </div>
 </div>
 
 <script>
@@ -222,24 +217,24 @@ body{
   const AUTH_KEY = 'acce_login_data_v1';
 
   const countries = [
-    {flag:'🇦🇪', name:'الإمارات العربية المتحدة', code:'+971', lang:'ar'},
-    {flag:'🇮🇶', name:'العراق', code:'+964', lang:'ar'},
-    {flag:'🇸🇦', name:'المملكة العربية السعودية', code:'+966', lang:'ar'},
-    {flag:'🇦🇺', name:'Australia', code:'+61', lang:'en'},
-    {flag:'🇺🇸', name:'United States', code:'+1', lang:'en'},
     {flag:'🇬🇧', name:'United Kingdom', code:'+44', lang:'en'},
+    {flag:'🇺🇸', name:'United States', code:'+1', lang:'en'},
+    {flag:'🇦🇺', name:'Australia', code:'+61', lang:'en'},
     {flag:'🇨🇦', name:'Canada', code:'+1', lang:'en'},
     {flag:'🇩🇪', name:'Germany', code:'+49', lang:'en'},
     {flag:'🇫🇷', name:'France', code:'+33', lang:'en'},
     {flag:'🇮🇹', name:'Italy', code:'+39', lang:'en'},
     {flag:'🇪🇸', name:'Spain', code:'+34', lang:'en'},
     {flag:'🇹🇷', name:'Turkey', code:'+90', lang:'en'},
+    {flag:'🇦🇪', name:'United Arab Emirates', code:'+971', lang:'en'},
+    {flag:'🇮🇶', name:'Iraq', code:'+964', lang:'en'},
+    {flag:'🇸🇦', name:'Saudi Arabia', code:'+966', lang:'en'},
     {flag:'🇶🇦', name:'Qatar', code:'+974', lang:'en'},
     {flag:'🇰🇼', name:'Kuwait', code:'+965', lang:'en'}
   ];
 
-  let selected = countries[1];
-  let selectedCode = '+964';
+  let selected = countries[0];
+  let selectedCode = '+44';
   let remembered = false;
 
   const $ = id => document.getElementById(id);
@@ -250,8 +245,8 @@ body{
   function renderCountries(){
     countryMenu.innerHTML = countries.map((c,i)=>`
       <button class="country-option" type="button" data-i="${i}">
-        <span class="country-name">${c.name}<span class="country-ar">${c.lang==='ar'?'العربية':'English'}</span></span>
         <span class="flag">${c.flag}</span>
+        <span class="country-name">${c.name}</span>
       </button>`).join('');
     countryMenu.querySelectorAll('.country-option').forEach(b=>{
       b.onclick=()=>{ selectCountry(+b.dataset.i); countryMenu.classList.remove('open'); };
@@ -315,11 +310,11 @@ body{
     setError('phoneError',''); setError('passwordError',''); $('loginNotice').textContent='';
     const phone=$('phone').value.trim(), pass=$('password').value;
     let ok=true;
-    if(selectedCode==='+964' && !validatePhone(phone)){
-      setError('phoneError','رقم الهاتف غير صحيح'); ok=false;
+    if(!validatePhone(phone)){
+      setError('phoneError','Invalid phone number'); ok=false;
     }
     if(!validatePassword(pass)){
-      setError('passwordError','كلمة المرور يجب أن تكون 8 أحرف'); ok=false;
+      setError('passwordError','Password must be 8 characters'); ok=false;
     }
     if(!ok) return;
 
@@ -328,7 +323,7 @@ body{
       if(remembered) localStorage.setItem(AUTH_KEY,JSON.stringify(saved));
       window.location.href=HOME;
     }else{
-      $('loginNotice').textContent='ليس لديك حساب ACCE';
+      $('loginNotice').textContent='You do not have an ACCE account';
     }
   };
 
@@ -342,14 +337,14 @@ body{
     const invite=$('invite').value.trim();
     let ok=true;
 
-    if($('rCodeText').textContent==='+964' && !validatePhone(phone)){
-      setError('rPhoneError','رقم الهاتف غير صحيح'); ok=false;
+    if(!validatePhone(phone)){
+      setError('rPhoneError','Invalid phone number'); ok=false;
     }
-    if(!validatePassword(pass)){ setError('rPasswordError','كلمة المرور يجب أن تكون 8 أحرف'); ok=false; }
-    if(conf!==pass){ setError('rConfirmError','كلمة المرور غير متطابقة'); ok=false; }
-    if(captcha!=='FJ18'){ setError('captchaError','الكابتشا غير صحيحة'); ok=false; }
-    if(!/^[A-Za-z0-9]{3}$/.test(invite)){ setError('inviteError','رمز الدعوة يجب أن يكون 3 أحرف'); ok=false; }
-    if(!$('agree').checked){ $('registerNotice').textContent='يرجى قبول اتفاق التسجيل'; ok=false; }
+    if(!validatePassword(pass)){ setError('rPasswordError','Password must be 8 characters'); ok=false; }
+    if(conf!==pass){ setError('rConfirmError','Passwords do not match'); ok=false; }
+    if(captcha!=='FJ18'){ setError('captchaError','Invalid captcha'); ok=false; }
+    if(!/^[A-Za-z0-9]{3}$/.test(invite)){ setError('inviteError','Invite code must be 3 characters'); ok=false; }
+    if(!$('agree').checked){ $('registerNotice').textContent='Please accept the enrollment agreement'; ok=false; }
     if(!ok) return;
 
     const data={code:$('rCodeText').textContent,phone,password:pass,invite,remembered:true};
